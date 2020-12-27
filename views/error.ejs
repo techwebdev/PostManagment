@@ -1,0 +1,13 @@
+<% if(messages.errors){%>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <% messages.errors.forEach((error)=>{ %> <%= error.msg %> <% }) %>
+</div>
+<% } %> <% if(messages.info){%>
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  <% messages.info.forEach((info)=>{ %> <%= info.msg %> <% }) %>
+</div>
+<% } %> <% if(messages.success){%>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <% messages.success.forEach((success)=>{ %> <%= success.msg %> <% }) %>
+</div>
+<% } %>

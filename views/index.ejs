@@ -1,0 +1,48 @@
+<%- include('base.ejs') %> <%- include('error.ejs') %>
+
+<div class="continer">
+  <div class="row">
+    <div class="d-flex justify-content-end">
+      <a href="/auth/logout" class="btn btn-danger mt-2">
+        Logout
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-start">
+      <a href="/addpost" class="btn btn-info mt-2">
+        Add Post
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <% posts && posts.forEach((post)=>{%>
+    <div class="col-lg-3 offset-lg-2 col-md-6 col-sm-12">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text">
+            <%= post.description%>
+          </p>
+          <p>
+            Created By: <%=
+            post.createdBy&&post.createdBy._id.equals(user._id)?"Me":post.createdBy
+            && post.createdBy.first_name || "UnKnow" %>
+          </p>
+
+          <p>Likes: <%= post.meta.likeCount %></p>
+          <% var likeBy =post.likeBy.filter((like)=>like &&
+          like.equals(user._id)) %>
+          <form action="/postlike/<%= post._id%>">
+            <% if(likeBy.length>0) {%>
+            <button type="submit" class="btn btn-danger">Unlike Post</button>
+            <%}else{%>
+            <button type="submit" class="btn btn-warning">Like Post</button>
+            <%}%>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%})%>
+  </div>
+</div>

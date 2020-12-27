@@ -1,0 +1,35 @@
+<%- include('base.ejs') %> <%- include('error.ejs') %>
+
+<div class="continer">
+  <div class="row">
+    <div class="d-flex justify-content-end">
+      <a href="/auth/logout" class="btn btn-danger mt-2">
+        Logout
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <h1 class="text-center"><%= title %></h1>
+    <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-3">
+      <form method="post" action="/addpost">
+        <div class="form-group">
+          <label for="title">Post Title</label>
+          <input required type="text" class="form-control" name="title" />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            required
+            type="text"
+            class="form-control"
+            name="description"
+          >
+          </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">
+          Save Post
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
