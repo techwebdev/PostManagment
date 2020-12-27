@@ -11,5 +11,5 @@
 
 - Login/Sign up
 - View Post
-- Add Post (title,description)
+- Add Post (title, description)
 - Like Post/ UnLike Post
